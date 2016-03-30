@@ -1381,9 +1381,78 @@ function wp_dashboard_empty() {}
  *
  * @since 3.3.0
  */
+
+?>
+/** START MY EDITS */
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw=="
+  crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+<style>
+    body { padding-top:20px; }
+.panel-body .btn:not(.btn-block) { width:250px;height:250px;margin-bottom:10px; }
+
+span.glyphicon {
+    font-size: 5em;
+    margin-top:50px;
+}
+</style>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <h1 class="text-center">Welcome to Your Dashboard</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+              &nbsp;
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                          <?php printf( '<a href="%s" class="btn btn-danger btn-lg">' . '<span class="glyphicon glyphicon-list-alt"></span> <br/>View History Pages' .'</a>', admin_url( 'post.php' ) ); ?>
+                          <?php printf( '<a href="%s" class="btn btn-warning btn-lg">' . '<span class="glyphicon glyphicon-bookmark"></span> <br/>New History Page' .'</a>', admin_url( 'new-post.php' ) ); ?>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>Analytics</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Comments</a>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                          <?php printf( '<a href="%s" class="btn btn-success btn-lg">' . '<span class="glyphicon glyphicon-user"></span> <br/>View Culure Pages' .'</a>', admin_url( 'post.php?post_type=page' ) ); ?>
+                          <?php printf( '<a href="%s" class="btn btn-info btn-lg">' . '<span class="glyphicon glyphicon-file"></span> <br/>New Culture Page' .'</a>', admin_url( 'new-post.php?post_type=page' ) ); ?>                            
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Photos</a>
+                          <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a>
+                          	<div class="welcome-panel-column">
+                                  
+                                  
+		<h3><?php _e( 'Next Steps' ); ?></h3>
+		<ul>
+		<?php if ( 'page' == get_option( 'show_on_front' ) && ! get_option( 'page_for_posts' ) ) : ?>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+		<?php elseif ( 'page' == get_option( 'show_on_front' ) ) : ?>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-edit-page">' . __( 'Edit your front page' ) . '</a>', get_edit_post_link( get_option( 'page_on_front' ) ) ); ?></li>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add additional pages' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Add a blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+		<?php else : ?>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-write-blog">' . __( 'Write your first blog post' ) . '</a>', admin_url( 'post-new.php' ) ); ?></li>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-add-page">' . __( 'Add an About page' ) . '</a>', admin_url( 'post-new.php?post_type=page' ) ); ?></li>
+		<?php endif; ?>
+			<li><?php printf( '<a href="%s" class="welcome-icon welcome-view-site">' . __( 'View your site' ) . '</a>', home_url( '/' ) ); ?></li>
+		</ul>
+	</div>
+    
+    
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-success btn-lg btn-block" role="button" style="width:97%"><span class="glyphicon glyphicon-globe" style="margin-top:10px;font-size:4em"></span> <span style="font-size:4em;">&nbsp; &nbsp;  View Your Site Live</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
 function wp_welcome_panel() {
 	?>
+    
 	<div class="welcome-panel-content">
+         why hello there
 	<h2><?php _e( 'Welcome to WordPress!' ); ?></h2>
 	<p class="about-description"><?php _e( 'We&#8217;ve assembled some links to get you started:' ); ?></p>
 	<div class="welcome-panel-column-container">
